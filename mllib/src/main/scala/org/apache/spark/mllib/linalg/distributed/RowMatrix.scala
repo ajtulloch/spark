@@ -77,7 +77,7 @@ class RowMatrix(
    * @param v a dense vector whose length must match the number of columns of this matrix
    * @return a dense vector representing the product
    */
-  private[mllib] def multiplyGramianMatrixBy(v: BDV[Double]): BDV[Double] = {
+  def multiplyGramianMatrixBy(v: BDV[Double]): BDV[Double] = {
     val n = numCols().toInt
     val vbr = rows.context.broadcast(v)
     rows.treeAggregate(BDV.zeros[Double](n))(
